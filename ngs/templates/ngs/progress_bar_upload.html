@@ -1,0 +1,75 @@
+{% extends 'ngs/pipelines.html' %}
+
+{% load static %}
+
+{% block title %}/ Uploading Sequencing Files{% endblock %}
+
+
+{% block javascript %}
+    {# JQUERY FILE UPLOAD SCRIPTS #}
+    <script src="{% static 'js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+
+    {# PHOTOS PAGE SCRIPTS #}
+    <script src="{% static 'ngs/js/progress-bar-upload.js' %}"></script>
+{% endblock %}
+
+{% block pipelines_content %}
+
+<!--<h4>you have got your loginusername <strong>{{ login_username }}</strong></h4>-->
+
+
+<form method="post" action="{% url 'ngs:clear_database' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" class="btn btn-danger pull-right">
+        <span class="glyphicon glyphicon-trash"></span> Clear Database
+    </button>
+</form>
+
+
+<div style="margin-bottom: 20px;">
+    <button type="submit" class="btn btn-info js-upload-photos">
+        <span class="glyphicon glyphicon-cloud-upload"></span> Upload SequencingFiles
+    </button>
+    <!--<input type="text" name="username" value="suyn">-->
+    <input id="fileupload" type="file" name="SeqFiles" multiple
+           style="display: none;"
+           data-url="{% url 'ngs:progress_bar_upload' %}"
+           data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+</div>
+
+<table id="gallery" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>SequecingFiles</th>
+            <th>username</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for SequencingFile in SequencingFiles %}
+            <tr>
+                <td><a href="{{ SequencingFile.SeqFiles.url }}">{{ SequencingFile.SeqFiles.name }}</a></td>
+                <td>{{ SequencingFiles.username }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Uploading...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

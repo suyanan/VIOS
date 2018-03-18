@@ -1,0 +1,60 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+{% block title_head %}VIOS - analysis{% endblock %}
+
+
+{% block main_header %}
+    &nbsp;&nbsp;&nbsp;&nbsp;NGS analysis progress
+    <small> {% block title %}{% endblock %}</small>
+{% endblock %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                <h2 class="panel-title"><strong>Pipelines</strong></h2>
+                </div>
+                <div class="list-group">
+                    <!--<a href="{% url 'ngs:loginusername' %}" class="list-group-item list-group-item-success{% if request.path == '/ngs/loginusername/' %} active{% endif %}">
+                        注册ID(register)
+                    </a><br>-->
+                    
+                    <a href="{% url 'ngs:progress_bar_upload' %}" class="list-group-item list-group-item-success{% if request.path == '/ngs/progress-bar-upload/' %} active{% endif %}">
+                        1.测序文件上传
+                    </a><br>
+                    
+                    <a href="{% url 'ngs:process' %}" class="list-group-item list-group-item-success{% if request.path == '/ngs/process/' %} active{% endif %}">
+                        2.数据类型和数据库选择
+                    </a><br>
+                    
+                    <a href="{% url 'ngs:results' %}" class="list-group-item list-group-item-success{% if request.path == '/ngs/results/' %} active{% endif %}">
+                        3.分析结果
+                    </a><br>
+
+                    <a href="{% url 'ngs:database' %}" class="list-group-item list-group-item-success{% if request.path == '/ngs/database/' %} active{% endif %}">
+                        *.用户自有参考数据库索引
+                    </a><br>
+
+                </div>
+            </div>
+        </div>        
+        <div class="col-md-9">
+            {% block pipelines_content %}
+            <div class="thumbnail">
+                <img src="{% static "ngs/images/vios_web.png" %}" alt="vios_pipelines" height="350px" width="450px" />
+                <!--<div class="caption">
+                    <h3><em>PIPELINE INTRO</em></h3>
+                    <h4>
+                        <p>The VIOS is used for the viruses quick identification on site.</p>
+                        <p>Here is the introduction of flow chart above, including quality controling、mapping to pick up reads related viruses、assembling to contigs and mapping aginst viruses database with contigs to target the possible identified viruses. </p>
+                        <p>You can upload the raw datas from "1.SeqFiles Upload", process query datas from "2.Pipeline Process", get some visual figures from "3.Result Display".</p>
+                    </h4>
+                </div>-->
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

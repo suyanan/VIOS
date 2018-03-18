@@ -1,0 +1,13 @@
+{% extends 'ngs/pipelines.html' %}
+
+{% block title %}/ register ID{% endblock %}
+
+{% block pipelines_content %}
+<form method="post" action="{% url 'ngs:loginusername' %}">
+  {% csrf_token %}
+  username:<input type="text" name="username">
+  <input type="submit" value="ok" />
+</form>
+
+
+{% endblock %}

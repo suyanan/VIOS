@@ -1,0 +1,28 @@
+{% extends "website/base.html" %}
+
+{% load static %}
+
+{% block title_head %}VIOS - manual{% endblock %}
+
+{% block main_header %}
+	Usage manual
+{% endblock %}
+
+{% block main_content %}
+
+	<img src="{% static "website/images/vios_pipelines.png" %}" alt="vios_pipelines" height="500px" width="600px" align="center" />
+
+
+	<h3>SOLUTION1: Deploy with Docker</h3>
+	<hr>
+	<h4>&nbsp;&nbsp;&nbsp;&nbsp;——The image (with Dockerfile) is on
+    <a href="https://hub.docker.com/r/suyanan/vios/" target="_blank"> DockerHub</a>.
+    </h4> 
+
+	<h3>SOLUTION2: Deploy with GitHub detailed information</h3>
+	<hr>
+	<h4>&nbsp;&nbsp;&nbsp;&nbsp;——The reference code is on
+    <a href="https://github.com/suyanan/VIOS" target="_blank"> GitHub</a>.
+    </h4> 
+	
+{% endblock %}

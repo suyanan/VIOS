@@ -1,0 +1,27 @@
+{% extends "website/base.html" %}
+
+{% block title_head %}VIOS - FAQ{% endblock %}
+
+{% block main_header %}
+	Find answer and questions
+{% endblock %}
+
+{% block main_content %}
+    <h4>The following FAQ's are in related to database preparation.</h4><br>
+
+    <h4>
+    	<ul>
+	    	<li><strong>Problem1 : </strong>how can I analysis bacteria related datas?<br>
+	    	<strong>Solution : </strong><br>
+	    	&nbsp;&nbsp;Before this, you need to add the bacteria database into the DATABASE_HOME directory. And bacteria database's process method is similar to the viruses database which detailed described in paper.
+		    </li>
+		    <br>
+
+	    	<li><strong>Problem1 : </strong>how can I add another host reference to map aginst and remove the host genetic information from the query dataset?<br>
+	    	<strong>Solution : </strong><br>
+	    	&nbsp;&nbsp;You need to add the host genome ID in USCS by "ANALYSIS-database".
+		    </li>
+		</ul>
+    </h4>
+
+{% endblock %}

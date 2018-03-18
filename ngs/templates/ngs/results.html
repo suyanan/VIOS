@@ -1,0 +1,237 @@
+{% extends 'ngs/pipelines.html' %}
+
+{% block title %}/ RESULTS{% endblock %}
+
+{% block pipelines_content %}
+
+<h3 style="font-family: LiSu; color: DarkCyan">
+    <span class="glyphicon glyphicon-flag"></span>&nbsp;病毒占比
+</h3>
+<form class="form-horizontal" action="{% url 'ngs:show_results_total_reads' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="reads_sta" value="{{ request.path }}">
+    
+
+    <h4 style="font-family: SimHei; color: skyblue">&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-triangle-right"></span>
+        <label for="query_sample">查询数据</label>
+    </h4> 
+    <div class="form-group">
+        <label for="query_sample" class="col-sm-1 control-label"></label>
+        <div class="col-sm-9">
+            <select id="query_sample" name='query_sample'>
+                {% for sample in sample_list_results %}
+                    <option value={{ sample }}>{{ sample }}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">            
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;Picture the virus proportion...
+            </button>
+        </div>
+    </div> 
+</form>
+
+
+
+
+<h3 style="font-family: LiSu; color: DarkCyan">
+    <span class="glyphicon glyphicon-flag"></span>&nbsp;识别到的病毒
+</h3>
+
+    <h4 style="font-family: LiSu; color: DarkCyan">
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin"></span>&nbsp;占比排名前五
+    </h4>
+    <form class="form-horizontal" action="{% url 'ngs:show_results_identifer_fig' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="reads_sta" value="{{ request.path }}">
+        
+
+        <h4 style="font-family: SimHei; color: skyblue">&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            <label for="query_sample">查询数据</label>
+        </h4> 
+        <div class="form-group">
+            <label for="query_sample" class="col-sm-1 control-label"></label>
+            <div class="col-sm-9">
+                <select id="query_sample" name='query_sample'>
+                    {% for sample in sample_list_results %}
+                        <option value={{ sample }}>{{ sample }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">            
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-dashboard"></span>&nbsp;Picture top 5 targeted viruses...
+                </button>
+            </div>
+        </div> 
+    </form>
+
+
+    <h4 style="font-family: LiSu; color: DarkCyan">
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin"></span>&nbsp;完整病毒列表
+    </h4>
+    <form class="form-horizontal" action="{% url 'ngs:show_results_identifer_list' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="identifer" value="{{ request.path }}">
+        
+        <h4 style="font-family: SimHei; color: skyblue">&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            <label for="query_sample">查询数据</label>
+        </h4> 
+        <div class="form-group">
+            <label for="query_sample" class="col-sm-1 control-label"></label>
+            <div class="col-sm-9">
+                <select id="query_sample" name='query_sample'>
+                    {% for sample in sample_list_results %}
+                        <option value={{ sample }}>{{ sample }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">            
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-dashboard"></span>&nbsp;List all targeted viruses...
+                </button>
+            </div>
+        </div> 
+
+        <table class="table table-hover">    
+            <!--<tr><th>accession</th><th class="warning">annotation</th><th>identity</th><th>e_value</th><th>bit_score</th></tr>-->
+            <tr>
+            {% for i in identifer_table_header %}
+                <th>{{ i }}</th>
+            {% endfor %}
+            </tr>
+
+            {% for eachline in targetIdentiferList %}
+            <!--<tr>
+            {% for i in eachline %}
+                <td>{{ i }}</td>
+            {% endfor %}  
+            </tr>-->
+            <tr>
+            {% for i in eachline %}                        
+                {% if forloop.first %}
+                    <td align="center">
+                        <!--<a href="{% url 'ngs:show_results_coverage' sample=sample_chosed nt_virus_family=family_chosed accession=i %}">-->
+                        <a href="{% url 'ngs:show_results_coverageSAM' sample=sample_chosed nt_virus_family=family_chosed accession=i %}">
+                        {{ i }}                
+                        </a>
+                    </td>
+                {% else %}
+                    <td align="center">{{ i }}</td>
+                {% endif %}
+            {% endfor %}  
+            </tr>
+            {% endfor %}          
+
+        </table>
+    </form>
+
+
+
+   
+    <h4 style="font-family: LiSu; color: DarkCyan">
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin"></span>&nbsp;组装序列的BLAST结果
+    </h4>
+    <form class="form-horizontal" action="{% url 'ngs:show_results_blastn' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="top_lines" value="{{ request.path }}">
+
+        <h4 style="font-family: SimHei; color: skyblue">&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            <label for="query_sample">查询数据</label>
+        </h4> 
+        <div class="form-group">
+            <label for="query_sample" class="col-sm-1 control-label"></label>
+            <div class="col-sm-9">
+                <select id="query_sample" name='query_sample'>
+                    {% for sample in sample_list_results %}
+                        <option value={{ sample }}>{{ sample }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+        </div>
+        
+        <h4 style="font-family: SimHei; color: skyblue">&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            <label for="order">结果展示的排序方法</label>
+        </h4> 
+        <div class="form-group">
+            <label for="order" class="col-sm-1 control-label"></label>
+            <div class="col-sm-9">
+                <input id="order"  type="radio" name="blast_result_order" value="11" checked="checked">E-score<br>
+                <input id="order" type="radio" name="blast_result_order" value="3">比对长度<br>  
+                <input id="order"  type="radio" name="blast_result_order" value="2">相似度<br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">            
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-dashboard"></span>&nbsp;List all targeted virus from contigs...
+                </button>
+            </div>
+        </div> 
+
+        <table class="table table-hover">    
+            <!--<tr><th>accession</th><th class="warning">annotation</th><th>identity</th><th>e_value</th><th>bit_score</th></tr>-->
+            <tr>
+            {% for i in table_header %}
+                <th>{{ i }}</th>
+            {% endfor %}
+            </tr>
+
+            {% for eachline in targetTopLines %}
+            <!--<tr>
+            {% for i in eachline %}
+                <td>{{ i }}</td>
+            {% endfor %}  
+            </tr>-->
+            <tr>
+            {% for i in eachline %}                        
+                {% if forloop.first %}
+                    <td align="center">
+                        <a href="{% url 'ngs:show_results_contigs' sample=sample_chosed nt_virus_family=family_chosed blastn_column=column_chosed accession=i %}">
+                        {{ i }}                
+                        </a>
+                    </td>
+                {% else %}
+                    <td align="center">{{ i }}</td>
+                {% endif %}
+            {% endfor %}  
+            </tr>
+            {% endfor %}          
+        </table>
+    </form>
+
+
+
+
+
+<h3 style="font-family: LiSu; color: DarkCyan">
+    <span class="glyphicon glyphicon-flag"></span>&nbsp;时间统计
+</h3>
+<form class="form-horizontal" action="{% url 'ngs:show_results_total_time' %}" method="post">
+    <input type="hidden" name="total_time" value="{{ request.path }}">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">            
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;Timer...
+            </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

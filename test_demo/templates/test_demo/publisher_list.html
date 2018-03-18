@@ -1,0 +1,14 @@
+{% extends 'website/contact.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h2>Publishers</h2>
+    <ul>
+        {% for publisher in my_favorite_publishers %}
+            <li>{{ publisher.name }}</li>
+            <li><a href="{{ publisher.website }}">{{ publisher.website }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

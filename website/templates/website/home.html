@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+{% block main_content %}
+    <!--<h1 class="page-header">Virus Identification On Site</h1>
+    <p class="lead">See the example of identifying the virus from NGS raw data.</p>-->
+    <div class="jumbotron">
+        <h1 style="color: skyblue;">Virus Identification On Site</h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Virus Identification On Site，简称为VIOS，在实临床/疫情现场，可快速从二代测试数据集中检出大致病毒种类，适用于单双端测序数据。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;基于精简处理后的病毒数据库，该软件的主要特点就是速度快；同时，还可以基于病毒全库，准确识别病毒毒株。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;本地部署该软件后，就可以在浏览器端直接访问，一键式分析，图表形式展示检出病毒结果。</p>
+        <!--<p>&nbsp;&nbsp;&nbsp;&nbsp;Virus Identification On Site (referred to as VIOS), in the field of actual clinical / epidemic situation, can quickly detect the approximate virus types from the second generation test data set, which is suitable for single and double-end sequencing data. Based on the streamlined virus database, the main feature of the software is speed; at the same time, it can also accurately identify virus strains based on the entire virus database. Once the software is deployed locally, it can be accessed directly at the browser, with one-click analysis and graphical display of virus results.</p>-->
+
+        <div style="text-align: right;">
+        	<p><a class="btn btn-primary btn-lg" href="{% url 'website:vios_intro' %}" role="button">Learn more</a></p>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+    <!--<strong><h3>VIOS</h3></strong>-->
+    <img src="{% static "website/images/vios_header.png" %}" alt="VIOS" height="60" width="90">
+    </a>
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu">
+        <ul class="nav navbar-nav">
+            <li{% if '/ngs/' in request.path %} class="active"{% endif %}>
+                <a href="{% url 'ngs:ngs_pipelines' %}"><h3>分析</h3></a>
+            </li>
+            <li{% if '/website/manual/' in request.path %} class="active"{% endif %}>
+                <a href="{% url 'website:manual' %}"><h3>手册</h3></a>
+            </li>
+            <li{% if '/website/reference/' in request.path %} class="active"{% endif %}>
+                <a href="{% url 'website:reference' %}"><h3>引用</h3></a>
+            </li>
+            <li{% if '/website/contact' in request.path %} class="active"{% endif %}>
+                <a href="{% url 'website:contact' %}"><h3>联系我们</h3></a>
+            </li>
+        </ul>
+    </div>
+
+    
+
+</nav>

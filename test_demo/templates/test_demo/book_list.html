@@ -1,0 +1,14 @@
+{% extends 'website/contact.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h2>Books</h2>
+    <ul>
+        {% for book in book_list %}
+            <li>{{ book.title }}</li>
+            <li>{{ book.publication_date }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

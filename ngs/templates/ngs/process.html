@@ -1,0 +1,67 @@
+{% extends 'ngs/pipelines.html' %}
+
+{% block title %}/ PIPELINE{% endblock %}
+
+{% block pipelines_content %}
+
+
+<form class="form-horizontal" action="{% url 'ngs:process_pipeline' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="process_pipeliner" value="{{ request.path }}">
+
+    <h4 style="font-family: SimHei; color: skyblue">
+        <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+        <label for="pipeliner">测序方式</label>
+    </h4>
+    <div class="form-group">
+        <div class="col-sm-10">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="pipeliner" type="radio" name="pipeliner" value="pe">双端测序(pair-end) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#TWO sequence files of each sample
+        </div>
+    </div> 
+    <div class="form-group">
+        <div class="col-sm-10">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="pipeliner" type="radio" name="pipeliner" value="se">单端测序(single-end) &nbsp;&nbsp;#ONE sequence file of each sample
+        </div>
+    </div>
+
+        
+    <h4 style="font-family: SimHei; color: skyblue">
+        <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+        <label for="genome_hosts">参考数据库</label>
+    </h4>
+
+    <div class="form-group">
+        <label for="genome_hosts" class="col-sm-3 control-label">宿主(reference host)</label>
+        <div class="col-sm-9">
+            <select id="genome_hosts" name='genome_hosts'>
+                {% for genome_host in genome_hosts_name_readable_updated_list %}
+                    <option value={{ genome_host }}>{{ genome_host }}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="nt_virus" class="col-sm-3 control-label">病毒库(virus database)</label>
+        <div class="col-sm-9">
+            <select id="nt_virus" name='nt_virus_family'>
+                {% for nt_virus_family in nt_viruses_family_name_readable_list %}
+                    <option value={{ nt_virus_family }}>{{ nt_virus_family }}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">            
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-hourglass"></span>&nbsp;开始分析
+            </button>
+        </div>
+    </div> 
+</form>
+
+
+
+
+{% endblock %}

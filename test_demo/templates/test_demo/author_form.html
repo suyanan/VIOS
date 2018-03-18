@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>authors</h1>
+    <form action="{% url 'test_demo:author-add' %}" method="post">
+        <ul>
+            {% for author in author_list %}
+                <li>{{ author.name }}</li>
+
+            {% endfor %}
+        </ul>
+    </form>
+
+</body>
+</html>
