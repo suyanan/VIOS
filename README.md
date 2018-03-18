@@ -5,6 +5,18 @@ Virus Identification On Site
 
 ![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/HOME-main.png)
 
+
+## TOOL'S FUNCTIONDEMO ON BROWSER SITE
+
+![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-1-uploadFiles.png)
+
+![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-2-pipeline.png)
+
+![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-3-results-a.png)
+
+![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-4-updateDatabase.png)
+
+
 ## Pre-requirement
 - Java 1.8
 - Python 2.7
