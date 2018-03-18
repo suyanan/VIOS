@@ -3,7 +3,7 @@ Virus Identification On Site
 
 [TOC]
 
-https://github.com/suyanan/VIOS/raw/master/INTRO/HOME-main.png
+![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/HOME-main.png)
 
 ## Pre-requirement
 - Java 1.8
