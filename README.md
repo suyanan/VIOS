@@ -8,13 +8,13 @@ Virus Identification On Site
 
 ## TOOL'S FUNCTIONDEMO ON BROWSER SITE
 
-![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-1-uploadFiles.png)
+![ANALYSIS-uploadFile](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-1-uploadFiles.png)
 
-![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-2-pipeline.png)
+![ANALYSIS-process](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-2-pipeline.png)
 
-![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-3-results-a.png)
+![ANALYSIS-results](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-3-results-a.png)
 
-![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-4-updateDatabase.png)
+![ANALYSIS-updateDatabase](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-4-updateDatabase.png)
 
 
 ## Pre-requirement
