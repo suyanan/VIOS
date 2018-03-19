@@ -40,7 +40,7 @@ $DATABASE_HOME/blastDB
 ```
 1. genome
 
-   Go to the modul **用户自有参考数据库索引**　on the web.
+   Go to the modul 用户自有参考数据库索引 on the web.
    Then , You can search species genome from [UCSC](http://hgdownload.soe.ucsc.edu/downloads.html) to get host "genome name" you wanna map aginst to remove the host genetics informations from the raw data reads. And, name the "genome name" with the readable name in the "host name" on the web.
 
    For example, you can add "hg38" and "human" in the input box attached a label with "genome name" and "host name", respectively.
@@ -72,12 +72,12 @@ $DATABASE_HOME/blastDB
    - Step1. pre-handle the virus database referring to the paper;
    - Step2. name it with "nt_viruses_final.fasta";
    - Step3. put the file into the **$DATABASE_HOME/blastDB/nt_viruses/final** directory;
-   - Step4. Go to the the modelue�������ݿ⴦����database����press the "Update Viruses" button.
+   - Step4. Go to the the modelue 用户自有参考数据库索引, press the "Update Viruses" button.
 
    Besides, you can also custom the virus 's some **family** like Filoviridae which Ebola belongs to. The process method is like the virus handling method above, in addition, modify the variables(nt_viruses_family_name_list,nt_viruses_family_name_readable_list) in the **/VIOS/ngs/scripts/config_paras.py** script.
 
    Well, you can email at Su Yanan <suyanan1991@163.com> to get the virus database, I'll share with you through cloud storage.
-   You can download nt_viruses_final database from [BaiduYun_database](https://pan.baidu.com/s/1lSp0nhK-uga0AEWrFpeWEw).
+   You can download nt_viruses_final database from [BaiduYun_database](https://pan.baidu.com/s/1lSpOnhK-uga0AEWrFpeWEw).
 
 ## Deploy the Django Project **VIOS**
   - **Step1. Config MYSQL database**
