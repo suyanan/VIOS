@@ -5,18 +5,6 @@ Virus Identification On Site
 
 ![VIOS HOME PAGE](https://github.com/suyanan/VIOS/raw/master/INTRO/HOME-main.png)
 
-
-## TOOL'S FUNCTIONDEMO ON BROWSER SITE
-
-![ANALYSIS-uploadFile](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-1-uploadFiles.png)
-
-![ANALYSIS-process](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-2-pipeline.png)
-
-![ANALYSIS-results](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-3-results-a.png)
-
-![ANALYSIS-updateDatabase](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-4-updateDatabase.png)
-
-
 ## Pre-requirement
 - Java 1.8
 - Python 2.7
@@ -52,7 +40,7 @@ $DATABASE_HOME/blastDB
 ```
 1. genome
 
-   Go to the module�������ݿ⴦����database��on the web.
+   Go to the modul **用户自有参考数据库索引**　on the web.
    Then , You can search species genome from [UCSC](http://hgdownload.soe.ucsc.edu/downloads.html) to get host "genome name" you wanna map aginst to remove the host genetics informations from the raw data reads. And, name the "genome name" with the readable name in the "host name" on the web.
 
    For example, you can add "hg38" and "human" in the input box attached a label with "genome name" and "host name", respectively.
@@ -89,7 +77,7 @@ $DATABASE_HOME/blastDB
    Besides, you can also custom the virus 's some **family** like Filoviridae which Ebola belongs to. The process method is like the virus handling method above, in addition, modify the variables(nt_viruses_family_name_list,nt_viruses_family_name_readable_list) in the **/VIOS/ngs/scripts/config_paras.py** script.
 
    Well, you can email at Su Yanan <suyanan1991@163.com> to get the virus database, I'll share with you through cloud storage.
-   You can download nt_viruses_final database from [BaiduYun_database](https://pan.baidu.com/s/1o8Vatbs).
+   You can download nt_viruses_final database from [BaiduYun_database](https://pan.baidu.com/s/1lSp0nhK-uga0AEWrFpeWEw).
 
 ## Deploy the Django Project **VIOS**
   - **Step1. Config MYSQL database**
@@ -137,8 +125,18 @@ $DATABASE_HOME/blastDB
 
   - **Step4. ANALYSIS: database**
   - **Step5. ANALYSIS: pipeline**
-  - **Step6. ANALYSIS��visualization**
+  - **Step6. ANALYSIS: visualization**
 
+
+## TOOL'S FUNCTIONDEMO ON BROWSER SITE
+
+  ![ANALYSIS-uploadFile](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-1-uploadFiles.png)
+
+  ![ANALYSIS-process](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-2-pipeline.png)
+
+  ![ANALYSIS-results](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-3-results-a.png)
+
+  ![ANALYSIS-updateDatabase](https://github.com/suyanan/VIOS/raw/master/INTRO/ANALYSIS-4-updateDatabase.png)
 
 
 <br>
