@@ -27,7 +27,7 @@ adenovirus two samples:
 -liublood
 
 You need to upload the raw datas, after uploading the files were in the directory of "$PATH/VIOS/media/2018/02/raw_datas/".
-You can get the them from [BaiduYun_demoData](https://pan.baidu.com/s/1i6DjPu1).
+You can get the them from [BaiduYun_demoData](https://pan.baidu.com/s/1hqsjfqi8-1ANb_ZmS8Sqgg).
 
 ## Database preparation
 BEFORE, set the **DATABASE_HOME** in your environment variables.
